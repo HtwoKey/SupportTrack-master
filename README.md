@@ -1,29 +1,17 @@
-# Geeker-Admin
+# SupportTrack
 
 ### 介绍 📖
 
-Geeker-Admin 一款基于 Vue3.4、TypeScript、Vite5、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。项目提供强大的 [ProTable](https://juejin.cn/post/7166068828202336263) 组件，在一定程度上提高您的开发效率。另外本项目还封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
-
-### React 版本 🔥
-
-- 有需要请加底部微信了解、购买
-
-- Link：https://pro.spicyboy.cn
-
-### 在线预览 👀
-
-- Link：https://admin.spicyboy.cn
+SupportTrack 一款基于 Geeker-admin 开源后台管理框架搭建的软件项目售后跟踪系统。主要功能有：问题登记、工单管理、协同处理，以及工单统计、工单分析、工单预警、知识库管理、用户管理、角色管理、菜单管理、字典管理、登录日志、操作日志等功能。
 
 ### 代码仓库 ⭐
 
+- GitHub：[https://github.com/HtwoKey/SupportTrack-master](https://github.com/HtwoKey/SupportTrack-master)
+
+### Geeker-Admin 地址⭐
+
 - Gitee：https://gitee.com/HalseySpicy/Geeker-Admin
 - GitHub：https://github.com/HalseySpicy/Geeker-Admin
-
-### 项目文档 📚
-
-- 项目更新日志：[CHANGELOG.md](./CHANGELOG.md)
-
-- 项目文档地址：https://docs.spicyboy.cn
 
 ### 项目功能 🔨
 
@@ -44,10 +32,8 @@ Geeker-Admin 一款基于 Vue3.4、TypeScript、Vite5、Pinia、Element-Plus 开
 - **Clone：**
 
 ```text
-# Gitee
-git clone https://gitee.com/HalseySpicy/Geeker-Admin.git
 # GitHub
-git clone https://github.com/HalseySpicy/Geeker-Admin.git
+git clone https://github.com/HtwoKey/SupportTrack-master.git
 ```
 
 - **Install：**
@@ -187,26 +173,7 @@ Geeker-Admin
 
 ### 项目后台接口 🧩
 
-项目后台接口完全采用 Mock 数据，感谢以下 Mock 平台支持：
+项目后台使用java语言开发，使用springboot框架，使用mysql数据库作为数据存储。
+项目地址：
 
-- FastMock： https://www.fastmock.site
-- EasyMock：https://mock.mengxuegu.com
-
-### 微信交流群 👨‍👨‍👦‍👦
-
-微信一群、二群、三群、四群已满，加作者微信进入五群（支持知识付费）🤪
-
-|                                               微信二维码                                                |
-| :-----------------------------------------------------------------------------------------------------: |
-| <img src="https://pic.ziyuan.wang/user/guest/2024/02/WX20240228-162952@2x_d164375fc0c16.png" width=170> |
-
-### 捐赠 🍵
-
-如果你正在使用这个项目或者喜欢这个项目的，可以通过以下方式支持我：
-
-- Star、Fork、Watch 一键三连 🚀
-- 通过微信、支付宝一次性捐款 ❤
-
-|                                        微信                                        |                                       支付宝                                       |
-| :--------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRzBX.png" alt="Alipay QRcode" width=170> | <img src="https://i.imgtg.com/2023/01/16/QRFZt.png" alt="Wechat QRcode" width=170> |
+- SupportTrack： https://github.com/HtwoKey/SupportTrack-server

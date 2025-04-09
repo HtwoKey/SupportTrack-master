@@ -21,7 +21,7 @@ export const editUser = (params: { id: string }) => {
 
 // 删除用户
 export const deleteUser = (params: { id: string[] }) => {
-  return http.delete(`/manage/user/delete`, params);
+  return http.delete(`/manage/user/delete/` + params.id);
 };
 
 // 切换用户状态
@@ -31,5 +31,5 @@ export const changeUserStatus = (params: { userId: string; isActive: boolean }) 
 
 // 重置用户密码
 export const resetUserPassWord = (params: { userId: string }) => {
-  return http.post(`/manage/user/rest_password`, params);
+  return http.put(`/manage/user/restPassword`, params);
 };

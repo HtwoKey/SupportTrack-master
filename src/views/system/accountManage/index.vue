@@ -4,7 +4,6 @@
       <!-- 表格 header 按钮 -->
       <template #tableHeader="scope">
         <el-button type="primary" :icon="CirclePlus" @click="openDrawer('新增')">新增用户</el-button>
-        <el-button type="primary" plain @click="toDetail">To 子集详情页面</el-button>
         <el-button type="danger" :icon="Delete" plain @click="batchDelete(scope.selectedListIds)" :disabled="!scope.isSelected">
           批量删除用户
         </el-button>
@@ -18,7 +17,6 @@
         <el-button type="primary" link :icon="View" @click="openDrawer('查看', scope.row)">查看</el-button>
         <el-button type="primary" link :icon="EditPen" @click="openDrawer('编辑', scope.row)">编辑</el-button>
         <el-button type="primary" link :icon="Refresh" @click="resetPass(scope.row)">重置密码</el-button>
-
         <el-button type="primary" link :icon="Delete" @click="deleteAccount(scope.row)">删除</el-button>
       </template>
     </ProTable>
@@ -29,7 +27,6 @@
 
 <script setup lang="tsx" name="useProTable">
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
 import type { User, Role } from "@/api/interface";
 import type { ColumnProps } from "@/components/ProTable/interface";
 import { useHandleData } from "@/hooks/useHandleData";
@@ -42,16 +39,10 @@ import { getUserList, deleteUser, editUser, addUser, changeUserStatus, resetUser
 import { getRoleListAll } from "@/api/modules/role";
 import { formatDate } from "@/utils/util";
 
-const router = useRouter();
 const userStatus = [
   { userLabel: "启用", userStatus: true },
   { userLabel: "禁用", userStatus: false }
 ];
-
-// 跳转详情页
-const toDetail = (id: any) => {
-  router.push(`/system/accountManage/detail/` + id + `?params=detail-page`);
-};
 
 // 获取 ProTable 元素，调用其获取刷新数据方法（还能获取到当前查询参数，方便导出携带参数）
 const proTable = ref();
@@ -91,7 +82,7 @@ const columns: ColumnProps<User.ResUserList>[] = [
   {
     prop: "username",
     label: "账号",
-    search: { el: "input", key: "keyword" }
+    search: { el: "input", key: "keyword", span: 1 }
   },
   { prop: "fullName", label: "姓名" },
   { prop: "email", label: "邮箱" },
@@ -100,7 +91,7 @@ const columns: ColumnProps<User.ResUserList>[] = [
     prop: "status",
     label: "状态",
     enum: userStatus,
-    search: { el: "tree-select", props: { filterable: false } },
+    search: { el: "tree-select", props: { filterable: false }, span: 1 },
     fieldNames: { label: "userLabel", value: "userStatus" },
     render: scope => {
       return (
@@ -113,6 +104,14 @@ const columns: ColumnProps<User.ResUserList>[] = [
           onClick={() => changeStatus(scope.row)}
         />
       );
+    }
+  },
+  {
+    prop: "lastLogin",
+    label: "最后登录时间",
+    width: 180,
+    render: scope => {
+      return <span>{formatDate(scope.row.lastLogin)}</span>;
     }
   },
   {
@@ -141,7 +140,7 @@ const batchDelete = async (id: string[]) => {
 
 // 重置用户密码
 const resetPass = async (row: User.ResUserList) => {
-  await useHandleData(resetUserPassWord, { id: row.userId }, `重置【${row.username}】用户密码`);
+  await useHandleData(resetUserPassWord, { userId: row.userId }, `重置【${row.username}】用户密码`);
   proTable.value.getTableList();
 };
 

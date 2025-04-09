@@ -84,196 +84,196 @@ export namespace User {
     name: string;
     children?: ResDepartment[];
   }
-  //* 角色管理模块
-  export namespace Role {
-    export interface ReqRoleParams extends ReqPage {
-      roleId: string;
-      roleName: string;
-      description: string;
-    }
-    export interface ResRoleList {
-      roleId: number;
-      roleName: string;
-      description: string;
-      createdAt: string;
-    }
+}
+//* 角色管理模块
+export namespace Role {
+  export interface ReqRoleParams extends ReqPage {
+    roleId: string;
+    roleName: string;
+    description: string;
   }
-
-  // * 菜单管理模块
-  export namespace Menu {
-    export interface ReqMenuParams extends ReqPage {
-      id: string;
-      name: string;
-      isHide: number;
-    }
-    export interface ResMenuList {
-      id: string;
-      parentId: string;
-      name: string;
-      component: string;
-      path: string;
-      type: string;
-      redirect: string;
-      sort: number;
-      title: string;
-      icon: string;
-      activeMenu: string;
-      isLink: string;
-      isHide: number;
-      isFull: number;
-      isAffix: number;
-      isKeepAlive: number;
-    }
-    export interface ReqAddMenuParams {
-      id: string;
-      parentId: string;
-      name: string;
-      component: string;
-      path: string;
-      type: string;
-      redirect: string;
-      sort: number;
-      title: string;
-      icon: string;
-      activeMenu: string;
-      isLink: string;
-      isHide: number;
-      isFull: number;
-      isAffix: number;
-      isKeepAlive: number;
-    }
-    export interface MenuTreeItem {
-      value: number;
-      label: string;
-      children?: MenuTreeItem[];
-    }
+  export interface ResRoleList {
+    roleId: number;
+    roleName: string;
+    description: string;
+    createdAt: string;
   }
+}
 
-  // * 资源管理模块
-  export namespace Resources {
-    export interface ReqResourcesParams extends ReqPage {
-      id: string;
-      name: string;
-      url: string;
-      categoryId: string;
-    }
-    export interface ResResourcesList {
-      id: string;
-      name: string;
-      url: string;
-      categoryId: string;
-      description: string;
-      createTime: string;
-    }
-    export interface ResCategory {
-      id: string;
-      name: string;
-      sort: number;
-      createTime: string;
-    }
+// * 菜单管理模块
+export namespace Menu {
+  export interface ReqMenuParams extends ReqPage {
+    id: string;
+    name: string;
+    isHide: number;
   }
-
-  // * 权限管理模块
-  export namespace Permission {
-    export interface ReqPermissionParams extends ReqPage {
-      id: string;
-      name: string;
-      value: string;
-    }
-    export interface ResPermissionList {
-      id: string;
-      pid: string;
-      name: string;
-      value: string;
-      uri: string;
-      description: string;
-      sort: number;
-      createTime: string;
-    }
+  export interface ResMenuList {
+    id: string;
+    parentId: string;
+    name: string;
+    component: string;
+    path: string;
+    type: string;
+    redirect: string;
+    sort: number;
+    title: string;
+    icon: string;
+    activeMenu: string;
+    isLink: string;
+    isHide: number;
+    isFull: number;
+    isAffix: number;
+    isKeepAlive: number;
   }
-
-  // * 系统操作日志
-  export namespace Log {
-    export interface ReqOperationLogParams extends ReqPage {
-      id: string;
-      username: string;
-      url: string;
-      method: string;
-      startTime: string;
-      endTime: string;
-    }
-    export interface ResOperationLogList {
-      id: string;
-      userId: string;
-      username: string;
-      ip: string;
-      url: string;
-      method: string;
-      params: string;
-      userAgent: string;
-      createTime: string;
-    }
+  export interface ReqAddMenuParams {
+    id: string;
+    parentId: string;
+    name: string;
+    component: string;
+    path: string;
+    type: string;
+    redirect: string;
+    sort: number;
+    title: string;
+    icon: string;
+    activeMenu: string;
+    isLink: string;
+    isHide: number;
+    isFull: number;
+    isAffix: number;
+    isKeepAlive: number;
   }
-
-  export namespace LoginLog {
-    export interface ReqLoginLogParams extends ReqPage {
-      userId: string;
-      startTime: string;
-      endTime: string;
-    }
-    export interface ResLoginLogList {
-      id: string;
-      userId: string;
-      ip: string;
-      address: string;
-      userAgent: string;
-      createTime: string;
-    }
+  export interface MenuTreeItem {
+    value: number;
+    label: string;
+    children?: MenuTreeItem[];
   }
+}
 
-  export namespace DictType {
-    export interface ReqDictTypeParams extends ReqPage {
-      name: string;
-      status: string;
-      startTime: string;
-      endTime: string;
-    }
-    export interface ResDictType {
-      id: string;
-      name: string;
-      status: string;
-      createBy: string;
-      createTime: string;
-      updateBy: string;
-      updateTime: string;
-      note: string;
-    }
+// * 资源管理模块
+export namespace Resources {
+  export interface ReqResourcesParams extends ReqPage {
+    id: string;
+    name: string;
+    url: string;
+    categoryId: string;
   }
+  export interface ResResourcesList {
+    id: string;
+    name: string;
+    url: string;
+    categoryId: string;
+    description: string;
+    createTime: string;
+  }
+  export interface ResCategory {
+    id: string;
+    name: string;
+    sort: number;
+    createTime: string;
+  }
+}
 
-  export namespace DictData {
-    export interface ReqDictDataParams extends ReqPage {
-      dictTypeId: string;
-      label: string;
-      status: string;
-      startTime: string;
-      endTime: string;
-    }
-    export interface ResDictData {
-      id: string;
-      dictTypeId: string;
-      parentId: string;
-      label: string;
-      value: string;
-      sort: string;
-      cssClass: string;
-      listClass: string;
-      isDefault: string;
-      status: string;
-      createBy: string;
-      createTime: string;
-      updateBy: string;
-      updateTime: string;
-      note: string;
-    }
+// * 权限管理模块
+export namespace Permission {
+  export interface ReqPermissionParams extends ReqPage {
+    id: string;
+    name: string;
+    value: string;
+  }
+  export interface ResPermissionList {
+    id: string;
+    pid: string;
+    name: string;
+    value: string;
+    uri: string;
+    description: string;
+    sort: number;
+    createTime: string;
+  }
+}
+
+// * 系统操作日志
+export namespace Log {
+  export interface ReqOperationLogParams extends ReqPage {
+    id: string;
+    username: string;
+    url: string;
+    method: string;
+    startTime: string;
+    endTime: string;
+  }
+  export interface ResOperationLogList {
+    id: string;
+    userId: string;
+    username: string;
+    ip: string;
+    url: string;
+    method: string;
+    params: string;
+    userAgent: string;
+    createTime: string;
+  }
+}
+
+export namespace LoginLog {
+  export interface ReqLoginLogParams extends ReqPage {
+    userId: string;
+    startTime: string;
+    endTime: string;
+  }
+  export interface ResLoginLogList {
+    id: string;
+    userId: string;
+    ip: string;
+    address: string;
+    userAgent: string;
+    createTime: string;
+  }
+}
+
+export namespace DictType {
+  export interface ReqDictTypeParams extends ReqPage {
+    name: string;
+    status: string;
+    startTime: string;
+    endTime: string;
+  }
+  export interface ResDictType {
+    id: string;
+    name: string;
+    status: string;
+    createBy: string;
+    createTime: string;
+    updateBy: string;
+    updateTime: string;
+    note: string;
+  }
+}
+
+export namespace DictData {
+  export interface ReqDictDataParams extends ReqPage {
+    dictTypeId: string;
+    label: string;
+    status: string;
+    startTime: string;
+    endTime: string;
+  }
+  export interface ResDictData {
+    id: string;
+    dictTypeId: string;
+    parentId: string;
+    label: string;
+    value: string;
+    sort: string;
+    cssClass: string;
+    listClass: string;
+    isDefault: string;
+    status: string;
+    createBy: string;
+    createTime: string;
+    updateBy: string;
+    updateTime: string;
+    note: string;
   }
 }

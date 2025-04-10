@@ -102,12 +102,40 @@ export namespace Role {
 
 // * 菜单管理模块
 export namespace Menu {
-  export interface ReqMenuParams extends ReqPage {
+  export interface MenuQueryParams extends ReqPage {
     id: string;
     name: string;
+    title: string;
     isHide: number;
+    permissionName: string;
   }
-  export interface ResMenuList {
+
+  export interface MenuList {
+    id: string;
+    name: string;
+    path: string;
+    component?: string | (() => Promise<unknown>);
+    redirect?: string;
+    meta: MetaProps;
+    permissionName: string;
+    uri: string;
+    method: string;
+    description: string;
+    children?: MenuList[];
+  }
+
+  export interface MetaProps {
+    icon: string;
+    title: string;
+    activeMenu?: string;
+    isLink?: number;
+    isHide: number;
+    isFull: number;
+    isAffix: number;
+    isKeepAlive: number;
+  }
+
+  export interface ReqMenuParams {
     id: string;
     parentId: string;
     name: string;
@@ -124,24 +152,10 @@ export namespace Menu {
     isFull: number;
     isAffix: number;
     isKeepAlive: number;
-  }
-  export interface ReqAddMenuParams {
-    id: string;
-    parentId: string;
-    name: string;
-    component: string;
-    path: string;
-    type: string;
-    redirect: string;
-    sort: number;
-    title: string;
-    icon: string;
-    activeMenu: string;
-    isLink: string;
-    isHide: number;
-    isFull: number;
-    isAffix: number;
-    isKeepAlive: number;
+    permissionName: string;
+    uri: string;
+    method: string;
+    description: string;
   }
   export interface MenuTreeItem {
     value: number;

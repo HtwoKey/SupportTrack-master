@@ -21,8 +21,9 @@ export const editMenu = (params: Menu.ReqMenuParams) => {
 };
 
 // * 删除菜单
-export const deleteMenu = (id: number) => {
-  return http.delete(`/manage/permission/delete/${id}`);
+export const deleteMenu = (id: string) => {
+  console.log(id);
+  return http.delete(`/manage/permission/delete/` + id);
 };
 
 // * 获取菜单树

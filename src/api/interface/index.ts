@@ -158,7 +158,7 @@ export namespace Menu {
     description: string;
   }
   export interface MenuTreeItem {
-    value: number;
+    value: string;
     label: string;
     children?: MenuTreeItem[];
   }
